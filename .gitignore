@@ -31,3 +31,25 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build files
+build/
+dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# Dependency directory
+.pnp/
+
+# Testing
+coverage/
+
+# Ignore artifacts of your development process
+.DS_Store
+Thumbs.db
