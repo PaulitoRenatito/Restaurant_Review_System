@@ -1,7 +1,5 @@
 package com.example.restaurant_review_system.restaurant_comment;
 
-import com.example.restaurant_review_system.valuation_history.ValuationHistoryDTO;
-import com.example.restaurant_review_system.valuation_history.ValuationHistoryID;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -26,7 +24,10 @@ public class RestaurantComment {
     private Date date;
     private OffsetTime hour;
 
-    public RestaurantComment(ValuationHistoryDTO data) {
+    public RestaurantComment( RestaurantCommentResponseDTO data) {
         this.id = new RestaurantCommentID(data.user_id(), data.restaurant_id());
+        this.comment = data.comment();
+        this.date = data.date();
+        this.hour = data.hour();
     }
 }
