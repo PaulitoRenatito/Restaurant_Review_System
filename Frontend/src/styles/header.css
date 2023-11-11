@@ -1,0 +1,30 @@
+.header {
+    background: rgb(0,0,0);
+    background: linear-gradient(132deg, rgba(0,0,0,1) 0%, rgba(65,65,65,1) 81%, rgba(135,135,135,1) 100%);
+    width: 100%;
+    position: fixed;
+    padding: 10px 0;
+    color: #000;
+    top: 0;
+}
+
+.header-container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav a{
+    color: #fff;
+    text-decoration: none;
+    margin: 8px 20px;
+    display:inline-block;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: blueviolet;
+    font-size: 20px;
+    margin: 8px 14px;
+    line-height: 24px;
+}
