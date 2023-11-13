@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+npm-debug.log
+
+# React
+dist/
+.cache/
+.env
+
+# Java
+target/
+
+# IntelliJ
+.idea/
+
+# Windows
+Thumbs.db

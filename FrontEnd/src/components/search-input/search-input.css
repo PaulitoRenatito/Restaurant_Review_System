@@ -1,0 +1,25 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+
+.search-container{
+    background-color: white;
+    border-radius: 8px;
+    width: 20vw;
+    height: 20px;
+    position: relative;
+    border: 2px solid rgba(75,113,100,1);
+    padding: 4px;
+    display: flex;
+}
+
+.search-input{
+    margin-left: 10px;
+    color: black;
+    background: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.search-input:focus{
+    outline: none;
+}

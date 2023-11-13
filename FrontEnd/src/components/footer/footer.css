@@ -1,0 +1,36 @@
+@import url(https://use.fontawesome.com/releases/v5.6.1/css/all.css);
+
+footer {
+    background: rgb(75,113,100);
+    background: linear-gradient(132deg, rgba(75,113,100,1) 0%, rgba(53,74,69,1) 100%);
+    width: 100vw;
+    height: 8vh;
+    position:absolute;
+    color: #000;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vh;
+}
+
+.footer-text {
+    display: inline-flex;
+    color: #fff;
+    margin: 0px 65px 0 65px;
+    text-decoration: none;
+    font-size: 14px;
+    text-shadow: 2px 2px 4px #000;
+    transition: transform 0.5s, text-shadow 0.5s;
+}
+
+.footer-text:hover {
+    color: #cca04f;
+    text-shadow: 5px 5px 4px #000;
+    transform: scale(1.5);
+}

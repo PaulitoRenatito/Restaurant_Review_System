@@ -1,0 +1,20 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 5px;
+    overflow-y: auto;
+}
+
+.card-grid::-webkit-scrollbar {
+    background: rgb(194, 194, 194);
+    border-radius: 8px;
+    width: 8px;
+}
+
+.card-grid::-webkit-scrollbar-thumb {
+    background: #e2e2e2;
+    border-radius: 8px;
+    height: 8px;
+}
