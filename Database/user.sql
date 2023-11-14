@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS public."user"
     profile_picture text COLLATE pg_catalog."default",
     email text COLLATE pg_catalog."default" NOT NULL,
     password text COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT "user_PK" PRIMARY KEY (id)
+    CONSTRAINT "user_PK" PRIMARY KEY (id),
+    CONSTRAINT "password_UN" UNIQUE (password)
 )
 
 TABLESPACE pg_default;
