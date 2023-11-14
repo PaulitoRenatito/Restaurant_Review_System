@@ -3,15 +3,15 @@ import { RestaurantData } from "../interface/RestaurantData";
 import { useQuery } from "@tanstack/react-query";
 import API_URL from "../utils/config";
 
-const fetchData = async (): AxiosPromise<RestaurantData[]> => {
-    const response = axios.get(API_URL + "/restaurant")
+const fetchData = async (user_id: number): AxiosPromise<RestaurantData[]> => {
+    const response = axios.get(API_URL + "/restaurant/getFavoritesByUser/" + user_id)
     return response;
 }
-export function useRestaurantData(){
+export function useFavoriteRestaurantByUser(user_id: number){
     
     const query = useQuery({
-        queryFn: fetchData,
-        queryKey: ['restaurant-data'],
+        queryFn: () => fetchData(user_id),
+        queryKey: ['restaurant-getFavoriteRestaurantByUser-data', user_id],
         retry: 2
     })
     
