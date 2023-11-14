@@ -1,0 +1,62 @@
+.register-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 2rem;
+    width: 50vw;
+    height: 60vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.input-container {
+    display: inherit;
+    flex-direction: inherit;
+    gap: 2px;
+    margin: 8px;
+}
+
+.input-title {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 40px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: black;
+  outline: none;
+  font-size: large;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+}
+
+.button-container {
+    display: flex;
+    justify-content:space-evenly;
+    margin-top: 10px;
+}
+
+.link-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.register-button {
+    display: flex;
+    width: inherit;
+    justify-content: center;
+    background: rgb(75,113,100);
+}
+
+.register-button:hover {
+    background: rgb(101, 145, 129);
+}
