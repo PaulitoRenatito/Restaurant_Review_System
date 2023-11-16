@@ -20,6 +20,13 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("getUserByNameAndPassword/{first_name}/{password}")
+    public UserResponseDTO getUserByPassword(@PathVariable String first_name, @PathVariable String password) {
+        UserResponseDTO userByPasswordList = new UserResponseDTO(repository.getUserByPassword(first_name, password));
+        return userByPasswordList;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveUser(@RequestBody UserRequestDTO data) {
         User userData = new User(data);
