@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./card.css"
 
 interface CardProps {
+    id: number,
     name: string,
     image: string,
     type_of_kitchen: string,
@@ -9,10 +10,9 @@ interface CardProps {
     max_price: number,
     average_rating: number
 }
-
-export function Card({name, image, type_of_kitchen, min_price, max_price, average_rating} : CardProps){
+export function Card({id, name, image, type_of_kitchen, min_price, max_price, average_rating} : CardProps){
     return(
-        <Link to="/restaurant-info">
+        <Link key={id} to={`/restaurant-info/${id}`}>
             <div className="card light-theme">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                 <img src={image} alt={name}/>

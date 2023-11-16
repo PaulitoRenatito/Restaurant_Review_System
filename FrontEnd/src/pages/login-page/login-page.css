@@ -1,18 +1,3 @@
-.container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    min-height: 100vh;
-    width: 99vw;
-    color: black;
-    background-image: url('../../assets/background.png');
-    background-position: 0;
-    background-size: cover;
-    overflow-x: hidden;
-}
-
 .main-body {
     display: flex;
     align-items: center;

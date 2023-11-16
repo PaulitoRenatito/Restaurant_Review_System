@@ -8,8 +8,9 @@ interface CardgridProps {
 export function CardGrid({ cards } : CardgridProps) {
     return(
         <div className='card-grid'>
-          {cards?.map((restaurantData: { name: string; image: string; type_of_kitchen: string; min_price: number; max_price: number; average_rating: number; }) => 
+          {cards?.map((restaurantData: { id: number, name: string; image: string; type_of_kitchen: string; min_price: number; max_price: number; average_rating: number; }) => 
             <Card
+              id={restaurantData.id}
               name={restaurantData.name}
               image={restaurantData.image}
               type_of_kitchen={restaurantData.type_of_kitchen} 

@@ -32,6 +32,13 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
             HAVING AVG(v.rating) > :rating
             """;
 
+    String sql_query_getRestaurantById =
+            """
+            SELECT r.*
+            FROM public.restaurant AS r
+            WHERE r.id = :id
+            """;
+
     @Query(value = sql_query_getFavoritesByUser, nativeQuery = true)
     List<Restaurant> getFavoritesRestaurantsByUser(@Param("id") Long id);
 
@@ -41,5 +48,8 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
     @Query(value = sql_query_getRestaurantsByRating, nativeQuery = true)
     List<Restaurant> getAllRestaurantsByRating(@Param("rating") Double rating);
+
+    @Query(value = sql_query_getRestaurantById, nativeQuery = true)
+    Restaurant getRestaurantById(@Param("id") Long id);
 
 }

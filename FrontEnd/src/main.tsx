@@ -8,6 +8,7 @@ import LoginPage from './pages/login-page/LoginPage.tsx';
 import RegisterPage from './pages/register-page/RegisterPage.tsx';
 
 import './index.css'
+import HeaderAndFooter from './components/header-footer/HeaderFooter.tsx';
 
 const queryClient = new QueryClient();
 
@@ -17,15 +18,15 @@ const router = createBrowserRouter([
     element: <LoginPage/>
   },
   {
-    path: "registerpage",
+    path: "/registerpage",
     element: <RegisterPage/>
   },
   {
-    path: "main",
+    path: "/main",
     element: <MainPage/>
   },
   {
-    path: "restaurant-info",
+    path: "/restaurant-info/:id",
     element: <RestaurantInfoPage/>
   }
 ])
@@ -33,7 +34,13 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}/>
+      <div className='container'>
+        <HeaderAndFooter>
+          <div className='main-body'>
+            <RouterProvider router={router}/>
+          </div>
+        </HeaderAndFooter>
+      </div>
     </QueryClientProvider>
   </React.StrictMode>,
 )

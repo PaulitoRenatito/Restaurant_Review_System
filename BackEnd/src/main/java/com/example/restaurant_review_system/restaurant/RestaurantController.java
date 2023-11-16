@@ -52,4 +52,11 @@ public class RestaurantController {
         return restaurantsByRating;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("getById/{id}")
+    public RestaurantResponseDTO getRestaurantById(@PathVariable Long id) {
+        RestaurantResponseDTO restaurantById = new RestaurantResponseDTO(repository.getRestaurantById(id));
+        return restaurantById;
+    }
+
 }

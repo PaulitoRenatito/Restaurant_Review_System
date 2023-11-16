@@ -1,22 +1,66 @@
-.container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    min-height: 100vh;
-    width: 99vw;
-    color: black;
-    background-image: url('../../assets/background.png');
-    background-position: 0;
-    background-size: cover;
-    overflow-x: hidden;
+.restaurant-image {
+    width: 800px;
+    height: 400px;
+    object-fit:fill; /* Manter a proporção e cobrir a área especificada */
+    border: 8px solid rgb(204,160,79);
 }
 
-.main-body {
+.body {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin: 100px 0 100px 0;
+    background-color: rgb(75,113,100, .95);
+    padding: 30px 10px 30px 10px;
+    border-radius: 2rem;
+    color: white;
+    text-align: center;
+    width: 80%;
+}
+
+.restaurant-title-fav {
+    display:flex;
+    align-items: center;
+}
+
+.restaurant-title {
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+.fav-icon {
+    margin-left: 16px;
+    height: 60px;
+    width: 60px;
+    background: url(../../assets/heart.svg);
+    background-size: cover;
+    filter: invert(100%) sepia(3%) saturate(298%) hue-rotate(235deg) brightness(115%) contrast(100%);
+    transition: filter 0.5s;
+}
+
+.fav-icon:hover {
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.restaurant-info{
+    font-weight: bold;
+    padding: 0;
+    margin-top: 6px;
+    font-size: 26px;
+}
+
+.restaurant-desc {
+    font-weight: bold;
+    padding: 0;
+    margin-top: 6px;
+    font-size: 30px;
+    text-align: justify;
+    width: 80%;
+}
+
+.restaurant-bottom-info {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin-top: 6px;
 }
