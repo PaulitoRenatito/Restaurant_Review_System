@@ -1,0 +1,24 @@
+.valuation-card-background {
+    display: flex;
+    background-color: white;
+    border-radius: 1rem;
+    justify-content: center;
+    margin: 10px;
+}
+
+.valuation-card-body {
+    width: 90%;
+}
+
+.valuation-card-title {
+    color: black;
+}
+
+.valuation-card-description {
+    text-align: justify;
+    color: black;
+}
+
+.valuation-card-date {
+    color: black;
+}

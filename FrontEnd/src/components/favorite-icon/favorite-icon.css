@@ -1,0 +1,29 @@
+.fav-icon {
+    margin-left: 16px;
+    height: 60px;
+    width: 60px;
+    background: url(../../assets/heart.svg);
+    background-size: cover;
+    filter: invert(100%) sepia(3%) saturate(298%) hue-rotate(235deg) brightness(115%) contrast(100%);
+    transition: filter 0.5s;
+}
+
+.fav-icon:hover {
+    cursor:pointer;
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.fav-icon.clicked {
+    margin-left: 16px;
+    height: 60px;
+    width: 60px;
+    background: url(../../assets/heart-fav.svg);
+    background-size: cover;
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    transition: filter 1s ease;
+}
+
+.fav-icon.clicked:hover {
+    cursor:pointer;
+    filter: invert(100%) sepia(3%) saturate(298%) hue-rotate(235deg) brightness(115%) contrast(100%);
+}

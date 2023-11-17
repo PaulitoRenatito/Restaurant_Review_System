@@ -16,15 +16,14 @@ footer {
 .footer-container{
     display: flex;
     justify-content: space-evenly;
-    width: 100vh;
+    width: 100%;
 }
 
 .footer-text {
     display: inline-flex;
     color: #fff;
-    margin: 0px 65px 0 65px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 20px;
     text-shadow: 2px 2px 4px #000;
     transition: transform 0.5s, text-shadow 0.5s;
 }
