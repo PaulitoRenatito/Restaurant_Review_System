@@ -1,0 +1,37 @@
+.card-list {
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 5px;
+    width: 80%;
+}
+
+.add-valuation {
+    margin: 10px 0 10px 0px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 300px;
+    background-color:white;
+    cursor: pointer;
+    border-radius: 2em;
+    transition: all 0.5s ease;
+}
+
+.add-valuation:hover {
+    filter: drop-shadow(0px 0px 5px #000);
+    transform: scale(1.2);
+}
+
+.fa.fa-plus {
+    width: 20%;
+    color: #000;
+    font-size: 20px;
+}
+
+.add-valuation-text {
+    width: 80%;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+}

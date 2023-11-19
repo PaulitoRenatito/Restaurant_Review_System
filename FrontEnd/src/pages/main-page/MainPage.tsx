@@ -1,5 +1,5 @@
 import { SearchableCardgrid } from '../../components/searchable-cardgrid/SearchableCardgrid';
-import { useRestaurantData } from '../../hooks/useRestaurantData';
+import { useRestaurantData } from '../../hooks/get/useRestaurantData';
 
 import './mainpage.css'
 

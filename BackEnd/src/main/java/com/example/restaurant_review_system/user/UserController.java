@@ -1,6 +1,9 @@
 package com.example.restaurant_review_system.user;
 
+import com.example.restaurant_review_system.login.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,10 +23,25 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping("getUserByNameAndPassword/{first_name}/{password}")
-    public UserResponseDTO getUserByPassword(@PathVariable String first_name, @PathVariable String password) {
-        UserResponseDTO userByPasswordList = new UserResponseDTO(repository.getUserByPassword(first_name, password));
-        return userByPasswordList;
+    @GetMapping("getByID/{id}")
+    public UserResponseDTO getByID(@PathVariable Long id) {
+        UserResponseDTO user = new UserResponseDTO(repository.getByID(id));
+        return user;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping("auth")
+    public ResponseEntity<UserResponseDTO> authenticateUser(@RequestBody LoginRequest loginRequest) {
+        User authUser = repository.getUserByNameAndPassword(loginRequest.getUsername(), loginRequest.getPassword());
+
+        System.out.println(authUser);
+
+        if (authUser != null) {
+            UserResponseDTO authUserResponse = new UserResponseDTO(authUser);
+            return ResponseEntity.ok(authUserResponse);
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")

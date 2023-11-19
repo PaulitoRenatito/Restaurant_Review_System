@@ -9,25 +9,27 @@ import RegisterPage from './pages/register-page/RegisterPage.tsx';
 
 import './index.css'
 import HeaderAndFooter from './components/header-footer/HeaderFooter.tsx';
+import { UserProvider } from './context/UserContext.tsx';
+import { RestaurantProvider } from './context/RestaurantContext.tsx';
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage/>
+    element: <LoginPage />
   },
   {
     path: "/registerpage",
-    element: <RegisterPage/>
+    element: <RegisterPage />
   },
   {
     path: "/main",
-    element: <MainPage/>
+    element: <MainPage />
   },
   {
-    path: "/restaurant-info/:id",
-    element: <RestaurantInfoPage/>
+    path: "/restaurant-info",
+    element: <RestaurantInfoPage />
   }
 ])
 
@@ -37,7 +39,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <div className='container'>
         <HeaderAndFooter>
           <div className='main-body'>
-            <RouterProvider router={router}/>
+            <UserProvider>
+              <RestaurantProvider>
+                <RouterProvider router={router} />
+              </RestaurantProvider>
+            </UserProvider>
           </div>
         </HeaderAndFooter>
       </div>

@@ -4,10 +4,13 @@
     border-radius: 1rem;
     justify-content: center;
     margin: 10px;
+    width: 100%;
 }
 
 .valuation-card-body {
+    text-align: start;
     width: 90%;
+    color: black;
 }
 
 .valuation-card-title {
@@ -15,7 +18,6 @@
 }
 
 .valuation-card-description {
-    text-align: justify;
     color: black;
 }
 

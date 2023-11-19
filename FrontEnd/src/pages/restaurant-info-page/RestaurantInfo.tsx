@@ -1,22 +1,24 @@
 import { useParams } from "react-router-dom";
 
 import './restaurant-info-page.css'
-import { useRestaurantById } from "../../hooks/useRestaurantById";
+import { useRestaurantById } from "../../hooks/get/useRestaurantById";
 import { FavoriteIcon } from "../../components/favorite-icon/FavoriteIcon";
-import { CardList } from "../../components/comment-card-list/CardList";
+import { CardList } from "../../components/valuation-card-list/ValuationList";
+import { useUser } from "../../context/UserContext";
+import { useRestaurant } from "../../context/RestaurantContext";
 
 function RestaurantInfoPage() {
 
-  const { id } = useParams();
-  const restaurantId = +id!;
-  const { data } = useRestaurantById(restaurantId);
+  const { userId } = useUser();
+  const { restaurantId } = useRestaurant();
+  const { data } = useRestaurantById(restaurantId!);
 
   return (
     <div className='body'>
       <img className='restaurant-image' src={data?.image} />
       <div className='restaurant-title-fav'>
         <h1 className='restaurant-title'>{data?.name}</h1>
-        <FavoriteIcon/>
+        <FavoriteIcon />
       </div>
       <h2 className='restaurant-info'>
         <p>Cozinha {data?.type_of_kitchen}</p>
@@ -29,7 +31,7 @@ function RestaurantInfoPage() {
         <text>Telefone: {data?.phone}</text>
         <text>Email: {data?.email}</text>
       </div>
-      <CardList/>
+      <CardList />
     </div>
   )
 }

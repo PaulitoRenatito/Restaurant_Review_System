@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalTime;
 import java.time.OffsetTime;
 
 @Table(name = "valuation", schema = "public")
@@ -25,7 +26,7 @@ public class Valuation {
     private BigDecimal rating;
     private String comment;
     private Date date;
-    private OffsetTime hour;
+    private LocalTime hour;
 
     public Valuation(ValuationRequestDTO data) {
         this.id = new ValuationID(data.user_id(), data.restaurant_id());

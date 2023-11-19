@@ -20,6 +20,14 @@ public class ValuationController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("getByRestaurantID/{restaurant_id}")
+    public List<ValuationResponseDTO> getByRestaurantID(@PathVariable Long restaurant_id) {
+        System.out.println(restaurant_id);
+        List<ValuationResponseDTO> valuationList = repository.getByRestaurantID(restaurant_id).stream().map(ValuationResponseDTO::new).toList();
+        return valuationList;
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveValuation(@RequestBody ValuationRequestDTO data) {
         Valuation valuationData = new Valuation(data);
