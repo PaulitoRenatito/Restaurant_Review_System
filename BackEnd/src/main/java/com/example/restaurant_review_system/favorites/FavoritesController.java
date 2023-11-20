@@ -1,12 +1,12 @@
 package com.example.restaurant_review_system.favorites;
 
-import com.example.restaurant_review_system.restaurant.RestaurantResponseDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("favorites")
@@ -23,11 +23,26 @@ public class FavoritesController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/isFavorite")
+    public ResponseEntity<Boolean> isFavorite(@RequestParam Long userId, @RequestParam Long restaurantId) {
+        Optional<Favorites> existingFavorite = repository.findByUserIdAndRestaurantId(userId, restaurantId);
+        return ResponseEntity.ok(existingFavorite.isPresent());
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
-    public void saveFavorites(@RequestBody FavoritesRequestDTO data) {
-        Favorites favoritesData = new Favorites(data);
-        repository.save(favoritesData);
-        return;
+    public void toggleFavorite(@RequestBody FavoritesRequestDTO data) {
+        Long userId = data.user_id();
+        Long restaurantId = data.restaurant_id();
+
+        Optional<Favorites> existingFavorite = repository.findByUserIdAndRestaurantId(userId, restaurantId);
+
+        if (existingFavorite.isPresent()) {
+            repository.delete(existingFavorite.get());
+        } else {
+            Favorites favoritesData = new Favorites(data);
+            repository.save(favoritesData);
+        }
     }
 
 }

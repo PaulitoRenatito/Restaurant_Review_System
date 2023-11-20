@@ -10,14 +10,14 @@
     justify-content: space-evenly;
 }
 
-.input-container {
+.login-input-container {
     display: inherit;
     flex-direction: inherit;
     gap: 2px;
     margin: 8px;
 }
 
-.input-title {
+.login-input-title {
     font-weight: bold;
 }
 
@@ -38,7 +38,7 @@ input[type="password"]:focus {
   border: 2px solid rgba(0, 0, 0, 0.8);
 }
 
-.button-container {
+.login-button-container {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
@@ -46,7 +46,7 @@ input[type="password"]:focus {
     justify-self: center;
 }
 
-.password-button {
+.login-password-button {
     display: flex;
     justify-content: center;
     align-items: center;

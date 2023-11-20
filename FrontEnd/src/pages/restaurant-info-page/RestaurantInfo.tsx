@@ -27,9 +27,9 @@ function RestaurantInfoPage() {
       </h2>
       <p className="restaurant-desc">{data?.description}</p>
       <div className="restaurant-bottom-info">
-        <text>Endereço: {data?.address}</text>
-        <text>Telefone: {data?.phone}</text>
-        <text>Email: {data?.email}</text>
+        <p>Endereço: {data?.address}</p>
+        <p>Telefone: {data?.phone}</p>
+        <p>Email: {data?.email}</p>
       </div>
       <CardList />
     </div>

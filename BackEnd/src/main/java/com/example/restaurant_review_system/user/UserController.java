@@ -34,8 +34,6 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> authenticateUser(@RequestBody LoginRequest loginRequest) {
         User authUser = repository.getUserByNameAndPassword(loginRequest.getUsername(), loginRequest.getPassword());
 
-        System.out.println(authUser);
-
         if (authUser != null) {
             UserResponseDTO authUserResponse = new UserResponseDTO(authUser);
             return ResponseEntity.ok(authUserResponse);
@@ -46,10 +44,14 @@ public class UserController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
-    public void saveUser(@RequestBody UserRequestDTO data) {
-        User userData = new User(data);
-        repository.save(userData);
-        return;
+    public ResponseEntity<String> saveUser(@RequestBody UserRequestDTO data) {
+        try {
+            User userData = new User(data);
+            repository.save(userData);
+            return ResponseEntity.ok("Usuário salvo com sucesso");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro: " + e.getMessage());
+        }
     }
 
 

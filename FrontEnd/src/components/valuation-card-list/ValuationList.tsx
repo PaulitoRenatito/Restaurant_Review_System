@@ -36,6 +36,7 @@ export function CardList(props: CardListProps) {
             <div className='card-list'>
                 {valuationData?.map((valuationData: ValuationData) =>
                     <ValuationCard
+                        key={parseInt(valuationData.user_id.toString() + valuationData.restaurant_id.toString())}
                         username={userData?.first_name!}
                         comment={valuationData.comment}
                         date={valuationData.date}

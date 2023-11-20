@@ -5,20 +5,7 @@ import { useUser } from "../../context/UserContext";
 import { useRestaurant } from "../../context/RestaurantContext";
 
 import './create-modal-valuation.css'
-
-interface InputProps {
-    label: string,
-    value: string | number,
-    updateValue(value: any): void
-}
-const Input = ({ label, value, updateValue }: InputProps) => {
-    return (
-        <>
-            <label>{label}</label>
-            <input value={value} onChange={event => updateValue(event.target.value)}></input>
-        </>
-    )
-}
+import CustomInput from "../input/CustomInput";
 
 interface CreateModalValuationProps {
     closeModal(): void
@@ -55,8 +42,8 @@ export function CreateModalValuation({ closeModal }: CreateModalValuationProps) 
             <div className="modal-body">
                 <h2>Cadastre uma nova avaliação</h2>
                 <form className="input-container">
-                    <Input label="Nota" value={rating} updateValue={setRating}></Input>
-                    <Input label="Comentario" value={comment} updateValue={setComment}></Input>
+                    <CustomInput label="Nota" value={rating} updateValue={setRating}/>
+                    <CustomInput label="Comentario" value={comment} updateValue={setComment}/>
                 </form>
                 <div className="button-container">
                     <button onClick={closeModal} className="btn-secondary">Cancelar</button>
