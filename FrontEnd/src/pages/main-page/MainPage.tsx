@@ -1,5 +1,5 @@
 import { SearchableCardgrid } from '../../components/searchable-cardgrid/SearchableCardgrid';
-import { useRestaurantData } from '../../hooks/get/useRestaurantData';
+import { useRestaurantData } from '../../hooks/restaurant/useRestaurantData';
 
 import './mainpage.css'
 
@@ -10,7 +10,7 @@ function MainPage() {
 
   return (
     <>
-      <h1>Restaurantes</h1>
+      <h1 className='mainpage-title'>Restaurantes</h1>
       <SearchableCardgrid cards={data} />
     </>
   )

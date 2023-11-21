@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 import './restaurant-info-page.css'
-import { useRestaurantById } from "../../hooks/get/useRestaurantById";
+import { useRestaurantById } from "../../hooks/restaurant/useRestaurantById";
 import { FavoriteIcon } from "../../components/favorite-icon/FavoriteIcon";
 import { CardList } from "../../components/valuation-card-list/ValuationList";
 import { useUser } from "../../context/UserContext";

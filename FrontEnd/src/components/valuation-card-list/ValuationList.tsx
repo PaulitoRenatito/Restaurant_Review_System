@@ -1,13 +1,13 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ValuationCard } from '../valuation-card/ValuationCard'
 import './valuation-list.css'
 import { CreateModalValuation } from '../create-modal-valuation/CreateModalValuation';
-import { useValuationByRestaurantID } from '../../hooks/get/useValuationByRestaurantID';
+import { useValuationByRestaurantID } from '../../hooks/valuation/useValuationByRestaurantID';
 import { useRestaurant } from '../../context/RestaurantContext';
 import { ValuationData } from '../../interface/ValuationData';
 import { useUser } from '../../context/UserContext';
-import { useUserByID } from '../../hooks/get/useUserByID';
+import { useUserByID } from '../../hooks/user/useUserByID';
 
 
 
@@ -18,8 +18,6 @@ export function CardList(props: CardListProps) {
 
     const { userId } = useUser();
     const { restaurantId } = useRestaurant();
-
-    console.log("User ID: " + userId + " | Restaurant ID: " + restaurantId);
 
     const { data: valuationData } = useValuationByRestaurantID(restaurantId!);
     const { data: userData } = useUserByID(userId!);
@@ -38,6 +36,7 @@ export function CardList(props: CardListProps) {
                     <ValuationCard
                         key={parseInt(valuationData.user_id.toString() + valuationData.restaurant_id.toString())}
                         username={userData?.first_name!}
+                        rating={valuationData.rating}
                         comment={valuationData.comment}
                         date={valuationData.date}
                         hour={valuationData.hour}

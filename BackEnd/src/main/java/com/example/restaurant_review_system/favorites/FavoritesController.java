@@ -23,9 +23,9 @@ public class FavoritesController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping("/isFavorite")
-    public ResponseEntity<Boolean> isFavorite(@RequestParam Long userId, @RequestParam Long restaurantId) {
-        Optional<Favorites> existingFavorite = repository.findByUserIdAndRestaurantId(userId, restaurantId);
+    @PostMapping("isFavorite")
+    public ResponseEntity<Boolean> isFavorite(@RequestBody FavoritesRequestDTO data) {
+        Optional<Favorites> existingFavorite = repository.findByUserIdAndRestaurantId(data.user_id(), data.restaurant_id());
         return ResponseEntity.ok(existingFavorite.isPresent());
     }
 

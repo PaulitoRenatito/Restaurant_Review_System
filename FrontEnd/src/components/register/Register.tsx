@@ -3,7 +3,7 @@ import './register.css'
 import axios, { AxiosError } from 'axios';
 import CustomInput from '../input/CustomInput'
 import { useState } from 'react';
-import { useUserMutate } from '../../hooks/post/useUserMutate';
+import { useUserMutate } from '../../hooks/user/useUserMutate';
 import { UserData } from '../../interface/UserData';
 
 export function Register() {

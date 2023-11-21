@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useValuationMutate } from "../../hooks/post/useValuationMutate";
+import { useValuationMutate } from "../../hooks/valuation/useValuationMutate";
 import { ValuationData } from "../../interface/ValuationData";
 import { useUser } from "../../context/UserContext";
 import { useRestaurant } from "../../context/RestaurantContext";
 
 import './create-modal-valuation.css'
 import CustomInput from "../input/CustomInput";
+import { StartRating } from "../star-rating/StartRating";
 
 interface CreateModalValuationProps {
     closeModal(): void
@@ -42,8 +43,8 @@ export function CreateModalValuation({ closeModal }: CreateModalValuationProps) 
             <div className="modal-body">
                 <h2>Cadastre uma nova avaliação</h2>
                 <form className="input-container">
-                    <CustomInput label="Nota" value={rating} updateValue={setRating}/>
-                    <CustomInput label="Comentario" value={comment} updateValue={setComment}/>
+                    <StartRating updateValue={setRating}/>
+                    <CustomInput label="Comentario" value={comment} updateValue={setComment} />
                 </form>
                 <div className="button-container">
                     <button onClick={closeModal} className="btn-secondary">Cancelar</button>

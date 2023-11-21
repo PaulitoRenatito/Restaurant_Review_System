@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from "axios";
 import { ValuationData } from "../../interface/ValuationData";
-import API_URL from "../../utils/config";
+import { API_URL, QUERY_STRINGS } from "../../utils/config";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async (restaurant_id: number): AxiosPromise<ValuationData[]> => {
@@ -11,7 +11,7 @@ export function useValuationByRestaurantID(restaurant_id: number) {
 
     const query = useQuery({
         queryFn: () => fetchData(restaurant_id),
-        queryKey: ['ValuationByRestaurantID-data'],
+        queryKey: [QUERY_STRINGS.VALUATION_QUERY],
         retry: 2
     })
 

@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from "axios";
-import API_URL from "../../utils/config";
+import { API_URL, QUERY_STRINGS } from "../../utils/config";
 import { useQuery } from "@tanstack/react-query";
 import { UserData } from "../../interface/UserData";
 
@@ -11,7 +11,7 @@ export function useUserByID(id: number) {
 
     const query = useQuery({
         queryFn: () => fetchData(id),
-        queryKey: ['UserByID-data', id],
+        queryKey: [QUERY_STRINGS.USER_QUERY, id],
         retry: 2
     })
 
