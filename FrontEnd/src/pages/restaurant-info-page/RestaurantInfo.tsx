@@ -1,17 +1,23 @@
-import { useParams } from "react-router-dom";
-
 import './restaurant-info-page.css'
 import { useRestaurantById } from "../../hooks/restaurant/useRestaurantById";
 import { FavoriteIcon } from "../../components/favorite-icon/FavoriteIcon";
-import { CardList } from "../../components/valuation-card-list/ValuationList";
-import { useUser } from "../../context/UserContext";
+import { ValuationList } from "../../components/valuation-card-list/ValuationList";
 import { useRestaurant } from "../../context/RestaurantContext";
+import { useState } from 'react';
+import { CreateModalValuation } from '../../components/create-modal-valuation/CreateModalValuation';
+import { useValuationByRestaurantID } from '../../hooks/valuation/useValuationByRestaurantID';
 
 function RestaurantInfoPage() {
 
-  const { userId } = useUser();
   const { restaurantId } = useRestaurant();
   const { data } = useRestaurantById(restaurantId!);
+  const { data: valuationData } = useValuationByRestaurantID(restaurantId!);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(prev => !prev)
+  }
 
   return (
     <div className='body'>
@@ -31,7 +37,12 @@ function RestaurantInfoPage() {
         <p>Telefone: {data?.phone}</p>
         <p>Email: {data?.email}</p>
       </div>
-      <CardList />
+      <ValuationList valuations={valuationData}/>
+      {isModalOpen && <CreateModalValuation closeModal={handleOpenModal} />}
+      <div className='add-valuation' onClick={handleOpenModal}>
+        <i className="fa fa-plus" aria-hidden="true"></i>
+        <p className='add-valuation-text'>Adicionar Comentario</p>
+      </div>
     </div>
   )
 }

@@ -5,6 +5,7 @@
     justify-content: center;
     margin: 10px;
     width: 100%;
+    filter: drop-shadow(0 0 0.2rem black);
 }
 
 .valuation-card-body {

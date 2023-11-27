@@ -1,9 +1,11 @@
 package com.example.restaurant_review_system.restaurant;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("restaurant")
@@ -28,11 +30,11 @@ public class RestaurantController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping("getFavoritesByUser/{user_id}")
-    public List<RestaurantResponseDTO> getUserFavoriteRestaurants(@PathVariable Long user_id) {
+    @GetMapping("/getFavoritesByUser/{user_id}")
+    public ResponseEntity<List<RestaurantResponseDTO>> getUserFavoriteRestaurants(@PathVariable Long user_id) {
         List<RestaurantResponseDTO> favoriteRestaurantsList =
                 repository.getFavoritesRestaurantsByUser(user_id).stream().map(RestaurantResponseDTO::new).toList();
-        return favoriteRestaurantsList;
+        return ResponseEntity.ok(favoriteRestaurantsList);
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")

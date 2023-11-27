@@ -10,6 +10,7 @@ import CustomInput from '../input/CustomInput';
 export function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loginStatus, setLoginStatus] = useState('');
   const navigate = useNavigate();
   const { updateUser } = useUser();
 
@@ -25,6 +26,8 @@ export function Login() {
     }
     catch (error) {
       console.error('Falha no login', error);
+
+      setLoginStatus('Usuário ou senha inválidos');
     }
   };
 
@@ -40,6 +43,7 @@ export function Login() {
       <div className="login-input-container">
         <CustomInput label='Senha' value={password} updateValue={setPassword} type='password' />
       </div>
+      {loginStatus && <div className='login-error-message'>{loginStatus}</div>}
       <div className="login-button-container">
         <button className='login-button' onClick={handleRegister}>Registrar</button>
         <button className='login-button' onClick={handleLogin}>Login</button>

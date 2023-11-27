@@ -39,6 +39,7 @@ header {
 }
 
 .header-text:hover {
+    cursor: pointer;
     color: #cca04f;
     text-shadow: 5px 5px 4px #000;
     transform: scale(1.5);

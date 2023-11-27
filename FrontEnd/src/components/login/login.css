@@ -38,6 +38,14 @@ input[type="password"]:focus {
   border: 2px solid rgba(0, 0, 0, 0.8);
 }
 
+.login-error-message {
+    color: red;
+    display: flex;
+    align-self: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .login-button-container {
     display: flex;
     width: 100%;

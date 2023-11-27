@@ -17,7 +17,7 @@ export function ValuationCard({ username, rating, comment, date, hour }: Valuati
                     <span>{rating} &#9733;</span>
                 </h4>
                 <p className='valuation-card-description'>{comment}</p>
-                <p className='valuation-card-date'>{date} {hour}</p>
+                <p className='valuation-card-date'>{date} {hour.substring(0, 5)}</p>
             </div>
         </div>
     )
