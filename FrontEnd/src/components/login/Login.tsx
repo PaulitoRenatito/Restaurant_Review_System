@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './login.css'
 import { useState } from 'react';
 import { API_URL } from '../../utils/config';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useUser } from '../../context/UserContext';
 import CustomInput from '../input/CustomInput';
 

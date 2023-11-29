@@ -1,6 +1,7 @@
 package com.example.restaurant_review_system.restaurant;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,56 +10,51 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("restaurant")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RestaurantController {
 
     @Autowired
     private RestaurantRepository repository;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
-    public List<RestaurantResponseDTO> getAll() {
+    public ResponseEntity<List<RestaurantResponseDTO>> getAll() {
         List<RestaurantResponseDTO> restaurantList = repository.findAll().stream().map(RestaurantResponseDTO::new).toList();
-        return restaurantList;
+        return ResponseEntity.ok(restaurantList);
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
-    public void saveRestaurant(@RequestBody RestaurantRequestDTO data) {
+    public ResponseEntity<Void> saveRestaurant(@RequestBody RestaurantRequestDTO data) {
         Restaurant restaurantData = new Restaurant(data);
         repository.save(restaurantData);
-        return;
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/getFavoritesByUser/{user_id}")
-    public ResponseEntity<List<RestaurantResponseDTO>> getUserFavoriteRestaurants(@PathVariable Long user_id) {
+    public ResponseEntity<List<RestaurantResponseDTO>> getFavoritesByUser(@PathVariable Long user_id) {
         List<RestaurantResponseDTO> favoriteRestaurantsList =
                 repository.getFavoritesRestaurantsByUser(user_id).stream().map(RestaurantResponseDTO::new).toList();
         return ResponseEntity.ok(favoriteRestaurantsList);
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("getBetweenPriceRange/{min_price}/{max_price}")
-    public List<RestaurantResponseDTO> getRestaurantsBetweenPriceRange(
+    public ResponseEntity<List<RestaurantResponseDTO>> getBetweenPriceRange(
             @PathVariable Long min_price, @PathVariable Long max_price) {
         List<RestaurantResponseDTO> restaurantsBetweenPriceRange =
                 repository.getAllRestaurantsBetweenPriceRange(min_price, max_price).stream().map(RestaurantResponseDTO::new).toList();
-        return restaurantsBetweenPriceRange;
+        return ResponseEntity.ok(restaurantsBetweenPriceRange);
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("getByRating/{rating}")
-    public List<RestaurantResponseDTO> getRestaurantsByRating(@PathVariable Double rating) {
+    public ResponseEntity<List<RestaurantResponseDTO>> getByRating(@PathVariable Double rating) {
         List<RestaurantResponseDTO> restaurantsByRating =
                 repository.getAllRestaurantsByRating(rating).stream().map(RestaurantResponseDTO::new).toList();
-        return restaurantsByRating;
+        return ResponseEntity.ok(restaurantsByRating);
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("getById/{id}")
-    public RestaurantResponseDTO getRestaurantById(@PathVariable Long id) {
+    public ResponseEntity<RestaurantResponseDTO> getById(@PathVariable Long id) {
         RestaurantResponseDTO restaurantById = new RestaurantResponseDTO(repository.getRestaurantById(id));
-        return restaurantById;
+        return ResponseEntity.ok(restaurantById);
     }
 
 }
