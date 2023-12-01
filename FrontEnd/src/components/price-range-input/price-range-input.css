@@ -1,0 +1,14 @@
+.price-range-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.price-range-input[type="text"] {
+    color: white;
+}
+
+.price-range-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}

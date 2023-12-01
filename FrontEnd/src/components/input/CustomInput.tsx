@@ -7,7 +7,6 @@ interface CustomInputProps {
     updateValue(value: any): void;
     type?: 'text' | 'password'; // Tipo opcional, assume 'text' como padrão
 }
-
 const CustomInput = ({ label, value, updateValue, type = 'text' }: CustomInputProps) => {
     const isPasswordType = type === 'password';
 

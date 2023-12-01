@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './login.css'
 import { useState } from 'react';
 import { API_URL } from '../../utils/config';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { useUser } from '../../context/UserContext';
 import CustomInput from '../input/CustomInput';
 
@@ -13,6 +13,8 @@ export function Login() {
   const [loginStatus, setLoginStatus] = useState('');
   const navigate = useNavigate();
   const { updateUser } = useUser();
+
+  updateUser(null);
 
   const handleLogin = async () => {
     try {

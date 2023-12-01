@@ -40,15 +40,15 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Container>
-          <HeaderAndFooter>
-            <MainBody>
-              <UserProvider>
-                <RestaurantProvider>
+          <UserProvider>
+            <RestaurantProvider>
+              <HeaderAndFooter>
+                <MainBody>
                   <AppRoutes />
-                </RestaurantProvider>
-              </UserProvider>
-            </MainBody>
-          </HeaderAndFooter>
+                </MainBody>
+              </HeaderAndFooter>
+            </RestaurantProvider>
+          </UserProvider>
         </Container>
       </BrowserRouter>
     </QueryClientProvider>

@@ -1,12 +1,13 @@
 
 import { useState } from 'react';
-import './start-rating.css'
+import './star-rating.css'
 
-interface StartRatingProps {
-    updateValue(value: any): void
+interface StarRatingProps {
+    updateValue(value: any): void;
+    label?: string;
+    color?: string;
 }
-export function StartRating({ updateValue }: StartRatingProps) {
-
+export function StarRating({ updateValue, color = 'black' , label = 'Nota:'}: StarRatingProps) {
     const [rating, setRating] = useState(0);
     const [hoveredRating, setHoveredRating] = useState(0);
 
@@ -20,9 +21,9 @@ export function StartRating({ updateValue }: StartRatingProps) {
     };
 
     return (
-        <div className="start-rating-overlay">
-            <p className='start-rating-label'>Nota: {rating} estrelas</p>
-            <div className="start-rating-container">
+        <div className="star-rating-overlay" style={{ color: color }}>
+            <p className='star-rating-label' style={{ color: color }}>{label} {rating}</p>
+            <div className="star-rating-container">
                 {[1, 2, 3, 4, 5].map((star) => (
                     <span
                         key={star}
@@ -36,5 +37,5 @@ export function StartRating({ updateValue }: StartRatingProps) {
                 ))}
             </div>
         </div>
-    )
+    );
 }

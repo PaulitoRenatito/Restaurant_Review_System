@@ -20,14 +20,36 @@
     margin: 100px 0 100px 0;
 }
 
+.mainpage-overlay {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    border-radius: 0 0 2rem 2rem;
+    padding: 6px;
+}
+
 .mainpage-title {
     margin: 0;
     color: white;
     font-size: 60px;
     font-weight: bold;
-    text-shadow:
-        -3px -3px 0 rgb(75, 113, 100),
-        3px -3px 0 rgb(75, 113, 100),
-        -3px 3px 0 rgb(75, 113, 100),
-        3px 3px 0 rgb(75, 113, 100);
+}
+
+.mainpage-filters {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+.mainpage-filter-overlay {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(75,113,100);
+    border-radius: 2rem 2rem 0 0;
+    padding: 6px;
 }

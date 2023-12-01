@@ -1,17 +1,19 @@
 import './header.css';
 import icon from '../../assets/icon_wtbk.png';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 
 const Header = () => {
 
+    const { userId } = useUser();
     const navigate = useNavigate();
 
     const handleGotoMainPage = () => {
-        navigate("/main")
+        if(userId != null) navigate("/main");
     }
 
     const handleGotoUserInfoPage = () => {
-        navigate("/user-info")
+        if(userId != null) navigate("/user-info");
     }
 
     return (
@@ -21,7 +23,7 @@ const Header = () => {
                 <h1 className="header-title">Sistema de Avaliação de Restaurantes</h1>
                 <nav>
                     <p className="header-text" onClick={handleGotoMainPage}>Home</p>
-                    <p className="header-text" onClick={handleGotoUserInfoPage}>About</p>
+                    <p className="header-text" onClick={handleGotoUserInfoPage}>Usuario</p>
                 </nav>
             </div>
         </header>

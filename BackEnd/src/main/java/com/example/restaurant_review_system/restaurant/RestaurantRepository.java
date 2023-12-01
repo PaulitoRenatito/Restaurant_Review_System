@@ -29,7 +29,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
             LEFT JOIN valuation AS v
             ON r.id = v.restaurant_id
             GROUP BY r.id
-            HAVING AVG(v.rating) > :rating
+            HAVING AVG(v.rating) >= :rating
             """;
 
     String sql_query_getRestaurantById =

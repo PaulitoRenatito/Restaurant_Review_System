@@ -1,16 +1,16 @@
-.start-rating-overlay {
+.star-rating-overlay {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.start-rating-label {
+.star-rating-label {
     font-weight: bold;
     margin: 0;
 }
 
-.start-rating-container {
+.star-rating-container {
     display: flex;
     align-items: center;
     font-size: 36px;

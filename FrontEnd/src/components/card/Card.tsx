@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./card.css"
 import { useRestaurant } from "../../context/RestaurantContext";
+import { RestaurantData } from "../../interface/RestaurantData";
 
 interface CardProps {
     id: number,
@@ -37,15 +38,24 @@ export function Card({ id, name, image, type_of_kitchen, min_price, max_price, a
     )
 }
 
-export function filterCards(cards: CardProps[], searchText: string) {
+export function filterCards(cards: RestaurantData[], searchName?: string, priceRange?: [number, number], minRating?: number) {
+    let filteredCards = [...cards];
 
-    const lowercaseSearchText = searchText.toLowerCase().trim();
-
-    if (!lowercaseSearchText) {
-        return cards;
+    if (searchName) {
+        const lowercaseSearchName = searchName.toLowerCase().trim();
+        filteredCards = filteredCards.filter((card) => card.name.toLowerCase().includes(lowercaseSearchName));
     }
 
-    return cards.filter((card) => {
-        return card.name.toLowerCase().includes(lowercaseSearchText);
-    });
+    console.log(priceRange);
+
+    if (priceRange && !isNaN(priceRange[0]) && !isNaN(priceRange[1])) {
+        const [minPrice, maxPrice] = priceRange;
+        filteredCards = filteredCards.filter((card) => card.min_price >= minPrice && card.max_price <= maxPrice);
+    }
+
+    if (minRating !== undefined) {
+        filteredCards = filteredCards.filter((card) => card.average_rating >= minRating);
+    }
+
+    return filteredCards;
 }

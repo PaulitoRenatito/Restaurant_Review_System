@@ -14,7 +14,8 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -42,14 +43,27 @@ button {
   cursor: pointer;
 }
 
+.primary-button {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  background: rgb(75, 113, 100);
+}
+
+.login-button:hover {
+  background: rgb(101, 145, 129);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
