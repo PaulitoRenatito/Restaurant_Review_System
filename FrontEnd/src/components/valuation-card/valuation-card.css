@@ -1,6 +1,6 @@
 .valuation-card-background {
     display: flex;
-    background-color: white;
+    background-color: var(--accent-color);
     border-radius: 1rem;
     justify-content: center;
     margin: 10px;

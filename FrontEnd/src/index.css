@@ -7,6 +7,11 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  --primary-color: rgb(75,113,100);
+  --secondary-color: rgb(233, 199, 136);
+  --accent-color: rgb(255, 255, 255);
+  --primary-gradient: linear-gradient(132deg, rgba(75,113,100,1) 0%, rgba(53,74,69,1) 100%);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

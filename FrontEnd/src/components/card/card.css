@@ -27,5 +27,7 @@
     width:100%;
     text-align: center;
     padding-bottom: 8px;
-    color: black;
+    background: PrimaryColor;
+    background: linear-gradient(132deg, rgb(92, 139, 123) 0%, rgb(71, 99, 93) 100%);
+    color: white;
 }

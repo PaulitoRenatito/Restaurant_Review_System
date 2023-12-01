@@ -1,6 +1,5 @@
 header {
-    background: rgb(75,113,100);
-    background: linear-gradient(132deg, rgba(75,113,100,1) 0%, rgba(53,74,69,1) 100%);
+    background: var(--primary-gradient);
     width: 100vw;
     height: 11vh;
     position:absolute;

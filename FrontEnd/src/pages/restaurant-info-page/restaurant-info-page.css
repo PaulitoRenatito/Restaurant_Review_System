@@ -2,7 +2,8 @@
     width: 800px;
     height: 400px;
     object-fit:fill; /* Manter a proporção e cobrir a área especificada */
-    border: 8px solid rgb(204,160,79);
+    border: 8px solid var(--secondary-color);
+    border-radius: 8px;
 }
 
 .body {
@@ -10,10 +11,10 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(75,113,100, .95);
+    background: var(--primary-color);
     padding: 30px 10px 30px 10px;
     border-radius: 2rem;
-    color: white;
+    color: var(--accent-color);
     text-align: center;
     width: 80%;
 }
