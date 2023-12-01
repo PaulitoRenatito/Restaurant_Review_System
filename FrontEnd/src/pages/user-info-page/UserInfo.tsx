@@ -17,13 +17,13 @@ function UserInfoPage() {
   return (
     <>
       <div className="user-info-overlay-top">
-      <img src={userData?.profile_picture || 'https://as1.ftcdn.net/v2/jpg/02/59/39/46/1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg'} alt="Profile" />
+        <img className='user-info-image' src={userData?.profile_picture || 'https://as1.ftcdn.net/v2/jpg/02/59/39/46/1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg'} alt="Profile" />
         <h1>{userData?.first_name} {userData?.last_name}</h1>
         <h3>{userData?.email}</h3>
       </div>
       <div className="user-info-overlay-bottom">
-        <CardGrid cards={favoriteRestaurantsData!} label="Favoritos"/>
-        <ValuationList valuations={valuationData!} label="Comentarios"/>
+        <CardGrid cards={favoriteRestaurantsData!} label="Favoritos" />
+        <ValuationList valuations={valuationData!} label="Comentarios" />
       </div>
     </>
   )

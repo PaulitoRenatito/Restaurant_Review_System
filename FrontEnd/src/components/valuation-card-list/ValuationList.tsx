@@ -12,10 +12,6 @@ interface ValuationListProps {
     label?: string
 }
 export function ValuationList({ valuations, label }: ValuationListProps) {
-
-    const { userId } = useUser();
-    const { data: userData } = useUserByID(userId!);
-
     return (
         <>
             <h1>{label}</h1>
@@ -23,7 +19,8 @@ export function ValuationList({ valuations, label }: ValuationListProps) {
                 {valuations?.map((valuationData: ValuationData) =>
                     <ValuationCard
                         key={parseInt(valuationData.user_id.toString() + valuationData.restaurant_id.toString())}
-                        username={userData?.first_name!}
+                        user_id={valuationData.user_id}
+                        restaurant_id={valuationData.restaurant_id}
                         rating={valuationData.rating}
                         comment={valuationData.comment}
                         date={valuationData.date}

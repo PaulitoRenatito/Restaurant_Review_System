@@ -6,7 +6,7 @@ import { useRestaurant } from "../../context/RestaurantContext";
 
 import './create-modal-valuation.css'
 import CustomInput from "../input/CustomInput";
-import { StartRating } from "../star-rating/StarRating";
+import { StarRating } from "../star-rating/StarRating";
 
 interface CreateModalValuationProps {
     closeModal(): void
@@ -43,7 +43,7 @@ export function CreateModalValuation({ closeModal }: CreateModalValuationProps) 
             <div className="modal-body">
                 <h2>Cadastre uma nova avaliação</h2>
                 <form className="input-container">
-                    <StartRating updateValue={setRating}/>
+                    <StarRating updateValue={setRating}/>
                     <CustomInput label="Comentario" value={comment} updateValue={setComment} />
                 </form>
                 <div className="button-container">

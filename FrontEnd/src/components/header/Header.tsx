@@ -16,6 +16,10 @@ const Header = () => {
         if(userId != null) navigate("/user-info");
     }
 
+    const handleGotoLoginPage = () => {
+        navigate("/");
+    }
+
     return (
         <header>
             <div className="header-container">
@@ -24,6 +28,7 @@ const Header = () => {
                 <nav>
                     <p className="header-text" onClick={handleGotoMainPage}>Home</p>
                     <p className="header-text" onClick={handleGotoUserInfoPage}>Usuario</p>
+                    <p className="header-text" onClick={handleGotoLoginPage}>Login</p>
                 </nav>
             </div>
         </header>
