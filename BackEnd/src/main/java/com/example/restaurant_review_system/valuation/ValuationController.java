@@ -42,4 +42,17 @@ public class ValuationController {
         return;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @DeleteMapping("{user_id}/{restaurant_id}")
+    public ResponseEntity<Void> deleteByID(@PathVariable Long user_id, @PathVariable Long restaurant_id) {
+        Valuation valuation = repository.getByUserAndRestaurantID(user_id, restaurant_id);
+
+        if (valuation != null) {
+            repository.delete(valuation);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

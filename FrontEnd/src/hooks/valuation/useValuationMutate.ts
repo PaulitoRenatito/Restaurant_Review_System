@@ -3,7 +3,7 @@ import { ValuationData } from "../../interface/ValuationData";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { API_URL, QUERY_STRINGS } from "../../utils/config";
 
-const postData =async (data: ValuationData): AxiosPromise<any> => {
+const postData = async (data: ValuationData): AxiosPromise<any> => {
     const response = axios.post(API_URL + "/valuation", data)
     return response;
 }
