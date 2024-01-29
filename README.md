@@ -56,7 +56,7 @@ Os dados exibidos nos cards são recebidos do backend por meio de solicitações
 
 Essa combinação de funcionalidades proporciona aos usuários uma experiência de login intuitiva e uma primeira impressão visual dos restaurantes disponíveis, incentivando a exploração adicional na plataforma.
 <p align='center'>
-    <img width='400' src='FrontEnd\src\assets\to_readme\login.gif'>
+    <img width='1200' src='FrontEnd\src\assets\to_readme\login.gif'>
 </p>
 
 ## Lógica de Filtragem, Tela Específica e Sistema de Comentários e Avaliações
@@ -74,7 +74,7 @@ Ao clicar em um card específico na tela inicial, os usuários são direcionados
 Os usuários podem atribuir uma pontuação e deixar comentários sobre cada restaurante. Essas avaliações contribuem para a pontuação geral do restaurante e fornecem feedback valioso para outros usuários.
 
 <p align='center'>
-    <img width='400' src='FrontEnd\src\assets\to_readme\home.gif'>
+    <img width='1200' src='FrontEnd\src\assets\to_readme\home.gif'>
 </p>
 
 ## Lógica de Userinfo
@@ -89,5 +89,5 @@ No terceiro GIF, é possível observar a lógica de userinfo, que exibe informa�
 Essas funcionalidades combinadas proporcionam aos usuários uma experiência completa ao explorar, avaliar e interagir com os restaurantes no sistema.
 
 <p align='center'>
-    <img width='400' src='FrontEnd\src\assets\to_readme\userinfo.gif'>
+    <img width='1200' src='FrontEnd\src\assets\to_readme\userinfo.gif'>
 </p>
